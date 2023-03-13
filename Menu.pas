@@ -36,7 +36,7 @@ implementation
 
 {$R *.dfm}
 
-uses Usuarios, Funcionarios, Cargos;
+uses uUsuarios, uFuncionarios, uCargos;
 
 procedure TFrmMenu.Cargo1Click(Sender: TObject);
 begin

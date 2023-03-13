@@ -1,0 +1,18 @@
+object dm: Tdm
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object fd: TFDConnection
+    Params.Strings = (
+      'Database=pdv'
+      'User_Name=postgres'
+      'Password=admin'
+      'DriverID=PG')
+    Left = 24
+    Top = 24
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    Left = 136
+    Top = 16
+  end
+end

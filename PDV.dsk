@@ -2,37 +2,42 @@
 File_0=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Login.dfm',0,1,551,1,1,0,0,,
 
 [Modules]
-Module0=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
-Module1=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Usuarios.pas
-Module2=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Cargos.pas
-Module3=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Funcionarios.pas
-Module4=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas
-Count=5
+Module0=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas
+Module1=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas
+Module2=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
+Module3=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
+Module4=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
+Module5=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas
+Count=6
 EditWindowCount=1
+
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas]
+ModuleType=TSourceModule
 
 [C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas]
 ModuleType=TSourceModule
 
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Usuarios.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Cargos.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Funcionarios.pas]
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas]
 ModuleType=TSourceModule
 
 [C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
-ViewCount=5
-CurrentEditView=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
+ViewCount=6
+CurrentEditView=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas
 View0=0
 View1=1
 View2=2
 View3=3
 View4=4
+View5=5
 PercentageSizes=1
 Create=1
 Visible=1
@@ -49,15 +54,15 @@ ClientHeight=9000
 DockedToMainForm=1
 BorlandEditorCodeExplorer=BorlandEditorCodeExplorer@EditWindow0
 TopPanelSize=0
-LeftPanelSize=1792
+LeftPanelSize=1896
 LeftPanelClients=PropertyInspector,DockSite3
-LeftPanelData=000008000101000000000B130000000000000100070000000000000100000000BC0F000009000000446F636B53697465330100000000DB2100001100000050726F7065727479496E73706563746F72FFFFFFFF
-RightPanelSize=1391
+LeftPanelData=00000800010100000000620F00000000000001680700000000000001000000005C0E000009000000446F636B53697465330100000000581B00001100000050726F7065727479496E73706563746F72FFFFFFFF
+RightPanelSize=2000
 RightPanelClients=DockSite2,DockSite4
-RightPanelData=000008000101000000000B13000000000000016F0500000000000001000000004412000009000000446F636B53697465320100000000DB21000009000000446F636B5369746534FFFFFFFF
-BottomPanelSize=0
-BottomPanelClients=MessageView,DockSite1
-BottomPanelData=000008000102020000000F0000004D65737361676556696577466F726D09000000446F636B5369746531DE44000000000000020A060000000000000100000000DE4400000F0000004D65737361676556696577466F726DFFFFFFFF
+RightPanelData=00000800010100000000620F00000000000001D00700000000000001000000004412000009000000446F636B53697465320100000000581B000009000000446F636B5369746534FFFFFFFF
+BottomPanelSize=1593
+BottomPanelClients=DockSite1,MessageView
+BottomPanelData=0000080001020100000009000000446F636B5369746531DE440000000000000239060000000000000100000000DE4400000F0000004D65737361676556696577466F726DFFFFFFFF
 BottomMiddlePanelSize=0
 BottomMiddlePanelClients=DockSite0,GraphDrawingModel
 BottomMiddelPanelData=0000080001020200000009000000446F636B536974653010000000477261706844726177696E67566965779F1D00000000000002F206000000000000FFFFFFFF
@@ -75,10 +80,10 @@ EditViewName=Borland.FormDesignerView
 
 [View1]
 CustomEditViewType=TEditView
-Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Funcionarios.pas
+Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
 CursorX=1
 CursorY=45
-TopLine=45
+TopLine=31
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -86,18 +91,29 @@ EditViewName=Borland.FormDesignerView
 
 [View2]
 CustomEditViewType=TEditView
-Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Cargos.pas
-CursorX=1
-CursorY=1
-TopLine=1
+Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
+CursorX=74
+CursorY=47
+TopLine=38
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=Borland.FormDesignerView
+EditViewName=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
 
 [View3]
 CustomEditViewType=TEditView
-Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Usuarios.pas
+Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas
+CursorX=1
+CursorY=38
+TopLine=8
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas
+
+[View4]
+CustomEditViewType=TEditView
+Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas
 CursorX=1
 CursorY=24
 TopLine=1
@@ -106,12 +122,12 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View4]
+[View5]
 CustomEditViewType=TEditView
 Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
-CursorX=42
-CursorY=32
-TopLine=26
+CursorX=38
+CursorY=50
+TopLine=31
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -178,11 +194,11 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=1391
+Width=2000
 Height=4240
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1391
+ClientWidth=2000
 ClientHeight=4240
 TBDockHeight=5904
 LRDockWidth=2349
@@ -192,18 +208,18 @@ StayOnTop=0
 [MessageView]
 PercentageSizes=1
 Create=1
-Visible=0
+Visible=1
 Docked=1
 State=0
 Left=0
 Top=28
 Width=9917
-Height=1337
+Height=1385
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=9917
-ClientHeight=1337
-TBDockHeight=1337
+ClientHeight=1385
+TBDockHeight=1385
 LRDockWidth=2771
 Dockable=1
 StayOnTop=0
@@ -216,12 +232,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=1391
-Height=3875
+Width=2000
+Height=2144
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1391
-ClientHeight=3875
+ClientWidth=2000
+ClientHeight=2144
 TBDockHeight=7154
 LRDockWidth=2000
 Dockable=1
@@ -234,23 +250,23 @@ Visible=1
 Docked=1
 State=0
 Left=0
-Top=463
-Width=1792
-Height=4548
+Top=425
+Width=1896
+Height=3183
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1792
-ClientHeight=4548
+ClientWidth=1896
+ClientHeight=3183
 TBDockHeight=9010
-LRDockWidth=1792
+LRDockWidth=1896
 Dockable=1
 StayOnTop=0
-SplitPos=105
+SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Enabled,
-ExpandedItems=Anchors=0,BorderIcons=1,Constraints=0,Font=1,"LiveBindings Designer=0",BevelEdges=0,LiveBindings=0,Margins=0,StyleElements=0,Touch=0,Font.Style=1,CustomTitleBar=0
+SelectedItem=Align,AfterCommit
+ExpandedItems=ConnectedStoredUsage=0,FetchOptions=0,FormatOptions=0,"LiveBindings Designer=0",Params=0,ResourceOptions=0,TxOptions=0,UpdateOptions=0,Anchors=0,BorderIcons=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -261,11 +277,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=8462
+Height=5760
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=8462
+ClientHeight=5760
 TBDockHeight=5962
 LRDockWidth=2510
 Dockable=1
@@ -447,11 +463,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=8462
+Height=5760
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=8462
+ClientHeight=5760
 TBDockHeight=4885
 LRDockWidth=7151
 Dockable=1
@@ -482,8 +498,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-8
-Top=-8
+Left=-44
+Top=-271
 Width=1849
 Height=3144
 MaxLeft=-1
@@ -567,12 +583,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=1792
-Height=3837
+Width=1896
+Height=3471
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1792
-ClientHeight=3837
+ClientWidth=1896
+ClientHeight=3471
 TBDockHeight=3683
 LRDockWidth=1896
 Dockable=1
@@ -587,11 +603,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=8462
+Height=5760
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=8462
+ClientHeight=5760
 TBDockHeight=4885
 LRDockWidth=5307
 Dockable=1
@@ -677,14 +693,14 @@ Docked=1
 State=0
 Left=0
 Top=28
-Width=1391
+Width=2000
 Height=4510
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1391
+ClientWidth=2000
 ClientHeight=4510
 TBDockHeight=9010
-LRDockWidth=1391
+LRDockWidth=2000
 Dockable=1
 StayOnTop=0
 TabPosition=1
@@ -701,14 +717,14 @@ Docked=1
 State=0
 Left=0
 Top=28
-Width=1792
-Height=3837
+Width=1896
+Height=3471
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1792
-ClientHeight=3837
+ClientWidth=1896
+ClientHeight=3471
 TBDockHeight=9010
-LRDockWidth=1792
+LRDockWidth=1896
 Dockable=1
 StayOnTop=0
 TabPosition=1
@@ -725,14 +741,14 @@ Docked=1
 State=0
 Left=0
 Top=533
-Width=1391
-Height=3875
+Width=2000
+Height=2144
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1391
-ClientHeight=3875
+ClientWidth=2000
+ClientHeight=2144
 TBDockHeight=9010
-LRDockWidth=1391
+LRDockWidth=2000
 Dockable=1
 StayOnTop=0
 TabPosition=1

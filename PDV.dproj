@@ -108,17 +108,22 @@
             <Form>FrmMenu</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Cadastros\Usuarios.pas">
+        <DCCReference Include="Cadastros\uUsuarios.pas">
             <Form>FrmUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Cadastros\Funcionarios.pas">
+        <DCCReference Include="Cadastros\uFuncionarios.pas">
             <Form>FrmFuncionarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Cadastros\Cargos.pas">
+        <DCCReference Include="Cadastros\uCargos.pas">
             <Form>FrmCargos</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uModulo.pas">
+            <Form>dm</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

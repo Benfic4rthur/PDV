@@ -4,9 +4,10 @@ uses
   Vcl.Forms,
   Login in 'Login.pas' {FrmLogin},
   Menu in 'Menu.pas' {FrmMenu},
-  Usuarios in 'Cadastros\Usuarios.pas' {FrmUsuarios},
-  Funcionarios in 'Cadastros\Funcionarios.pas' {FrmFuncionarios},
-  Cargos in 'Cadastros\Cargos.pas' {FrmCargos};
+  uUsuarios in 'Cadastros\uUsuarios.pas' {FrmUsuarios},
+  uFuncionarios in 'Cadastros\uFuncionarios.pas' {FrmFuncionarios},
+  uCargos in 'Cadastros\uCargos.pas' {FrmCargos},
+  uModulo in 'uModulo.pas' {dm: TDataModule};
 
 {$R *.res}
 
@@ -17,5 +18,6 @@ begin
   Application.CreateForm(TFrmUsuarios, FrmUsuarios);
   Application.CreateForm(TFrmFuncionarios, FrmFuncionarios);
   Application.CreateForm(TFrmCargos, FrmCargos);
+  Application.CreateForm(Tdm, dm);
   Application.Run;
 end.
