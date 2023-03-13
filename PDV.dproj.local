@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023/03/13 10:18:10.248,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/03/13 10:22:05.679,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/03/13 10:22:05.679,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2023/03/13 10:22:12.168,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\PDV.dproj=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2023/03/13 13:31:12.897,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
-    <Transaction>2023/03/13 13:31:30.778,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.dfm</Transaction>
-    <Transaction>2023/03/13 13:31:30.778,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+	<Transactions>
+    <Transaction>2023/03/13 10:18:10.000.248,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 10:22:05.000.679,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.dfm</Transaction>
+    <Transaction>2023/03/13 10:22:05.000.679,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas</Transaction>
+    <Transaction>2023/03/13 10:22:12.000.168,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\PDV.dproj</Transaction>
+    <Transaction>2023/03/13 13:31:12.000.897,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 13:31:30.000.778,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas</Transaction>
+    <Transaction>2023/03/13 13:31:30.000.778,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.dfm</Transaction>
+    <Transaction>2023/03/13 13:50:10.000.410,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 13:50:28.000.338,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Usuarios.pas</Transaction>
+    <Transaction>2023/03/13 13:50:28.000.338,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Usuarios.dfm</Transaction>
+    <Transaction>2023/03/13 13:59:36.000.078,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Usuarios.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Usuarios.pas</Transaction>
+    <Transaction>2023/03/13 13:59:36.000.078,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Usuarios.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Usuarios.dfm</Transaction>
+    <Transaction>2023/03/13 14:00:51.000.209,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 14:01:00.000.991,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Funcionarios.dfm</Transaction>
+    <Transaction>2023/03/13 14:01:00.000.991,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Funcionarios.pas</Transaction>
+    <Transaction>2023/03/13 16:23:01.077,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 16:23:18.540,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Cargos.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.dfm</Transaction>
+    <Transaction>2023/03/13 16:23:18.540,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\Cargos.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

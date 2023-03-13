@@ -36,6 +36,8 @@ implementation
 
 {$R *.dfm}
 
+uses Menu;
+
 procedure TFrmLogin.btnLoginClick(Sender: TObject);
 begin
   if trim(txtUsuario.text) = '' then
@@ -44,7 +46,7 @@ begin
       txtUsuario.SetFocus;
       exit;
   end;
-   if trim(txtSenha.text) = '' then
+  if trim(txtSenha.text) = '' then
   begin
       MessageDlg('Preencha a senha!', TMsgDlgType.mtWarning, mbOKCancel, 0);
       txtSenha.SetFocus;
@@ -72,7 +74,8 @@ end;
 
 procedure TFrmLogin.login;
 begin
- MessageDlg('Login efetuado!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+FrmMenu := TFrmMenu.Create(FrmLogin);
+FrmMenu.ShowModal;
 //aqui vem a validação do login
 end;
 

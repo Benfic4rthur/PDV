@@ -3,7 +3,7 @@ object FrmUsuarios: TFrmUsuarios
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'FrmUsuarios'
+  Caption = 'Usu'#225'rios'
   ClientHeight = 657
   ClientWidth = 1276
   Color = clMoneyGreen

@@ -22,10 +22,6 @@ object FrmLogin: TFrmLogin
     Height = 620
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 464
-    ExplicitTop = 136
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object ImgFundo: TImage
       Left = 1
       Top = 1
