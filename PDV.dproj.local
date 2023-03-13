@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/03/13 10:18:10.248,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 10:22:05.679,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 10:22:05.679,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/03/13 10:22:12.168,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\PDV.dproj=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/03/13 13:31:12.897,=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+    <Transaction>2023/03/13 13:31:30.778,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.dfm=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.dfm</Transaction>
+    <Transaction>2023/03/13 13:31:30.778,C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
