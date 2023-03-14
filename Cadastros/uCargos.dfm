@@ -26,7 +26,7 @@ object FrmCargos: TFrmCargos
   end
   object BtnNovo: TSpeedButton
     Left = 264
-    Top = 56
+    Top = 63
     Width = 73
     Height = 42
     Cursor = crHandPoint
@@ -122,7 +122,7 @@ object FrmCargos: TFrmCargos
   end
   object BtnSalvar: TSpeedButton
     Left = 264
-    Top = 120
+    Top = 128
     Width = 73
     Height = 42
     Cursor = crHandPoint
@@ -219,7 +219,7 @@ object FrmCargos: TFrmCargos
   end
   object BtnEditar: TSpeedButton
     Left = 264
-    Top = 184
+    Top = 192
     Width = 73
     Height = 42
     Cursor = crHandPoint
@@ -312,11 +312,12 @@ object FrmCargos: TFrmCargos
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnEditarClick
   end
   object BtnExcluir: TSpeedButton
     Left = 264
-    Top = 248
-    Width = 76
+    Top = 255
+    Width = 73
     Height = 42
     Cursor = crHandPoint
     Caption = 'Excluir'
@@ -408,6 +409,7 @@ object FrmCargos: TFrmCargos
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnExcluirClick
   end
   object TxtNomeFuncionario: TEdit
     Left = 61
@@ -429,5 +431,6 @@ object FrmCargos: TFrmCargos
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = gridCellClick
   end
 end

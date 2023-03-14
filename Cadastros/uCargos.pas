@@ -19,6 +19,9 @@ type
     procedure BtnNovoClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure gridCellClick(Column: TColumn);
+    procedure BtnEditarClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
   private
     { Private declarations }
     procedure associarCampos;
@@ -29,6 +32,7 @@ type
 
 var
   FrmCargos: TFrmCargos;
+  id : String;
 
 implementation
 
@@ -42,33 +46,97 @@ begin
  dm.tb_Cargos.FieldByName('cargo').Value := TxtNomeFuncionario.Text;
 end;
 
+procedure TFrmCargos.BtnEditarClick(Sender: TObject);
+//cria uma variavel pra receber o cargo
+var
+cargo : string;
+begin
+//se o campo texto for vazio, entra na validação
+if Trim(TxtNomeFuncionario.Text) = '' then
+begin
+//valida se algo foi digitado no campo texto
+      MessageDlg('Preencha o cargo!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      TxtNomeFuncionario.SetFocus;
+      exit;
+end;
+//sql que busca os cargos na tabela conforme o cargo escrito no campo de texto
+dm.query_cargos.Close;
+dm.query_cargos.SQL.clear;
+dm.query_cargos.SQL.Add('Select * from cargos where cargo = ' + QuotedStr(Trim(TxtNomeFuncionario.Text)) );
+dm.query_cargos.Open;
+//verificar se cargo ja existe ao tentar salvar o editado
+if not dm.query_cargos.IsEmpty then
+begin
+cargo := dm.query_cargos['cargo'];
+MessageDlg('o cargo '+ cargo + ' já esta cadastrado!', mtInformation, mbOKCancel, 0);
+TxtNomeFuncionario.Text := '';
+TxtNomeFuncionario.SetFocus;
+exit;
+end;//faz o update caso não exista nada com o mesmo nome
+associarCampos;
+dm.query_cargos.Close;
+dm.query_cargos.SQL.clear;
+//faz um update na base no campo cargo que tenha o id igual ao passado
+dm.query_cargos.SQL.Add('Update cargos set cargo = :cargo where id = :id');
+dm.query_cargos.paramByName('cargo').Value := TxtNomeFuncionario.text;
+dm.query_cargos.paramByName('id').value := id;
+dm.query_cargos.ExecSql;
+listar;
+MessageDlg('Editado com sucesso!', mtInformation, mbOKCancel, 0);
+btnEditar.Enabled := false;
+btnExcluir.Enabled := false;
+TxtNomeFuncionario.text := '';
+end;
+
+procedure TFrmCargos.BtnExcluirClick(Sender: TObject);
+begin
+//cria um if que compara o resultado selecionado pelo cliente para excluir ou não da base
+if MessageDlg('Deseja excluir o registo?', TMsgDlgType.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+begin
+//apaga o registro do banco de dados
+dm.tb_Cargos.Delete;
+//avisa que foi apagado
+MessageDlg('O registro foi excluido com sucesso!', TMsgDlgType.mtInformation, mbOKCancel, 0);
+//atualiza o datagrid
+listar;
+btnEditar.Enabled := false;
+btnExcluir.Enabled := false;
+TxtNomeFuncionario.text := '';
+end;
+end;
+
 procedure TFrmCargos.BtnNovoClick(Sender: TObject);
+// ao clicar em novo ele deixa ativo o botão salvar, o campo de texto
+//e limpa o campo de texto, alem de dar foco nele
 begin
 btnSalvar.Enabled := true;
 TxtNomeFuncionario.Enabled := true;
 TxtNomeFuncionario.Text := '';
 TxtNomeFuncionario.setFocus;
-
 dm.fd.StartTransaction;
 dm.tb_Cargos.Insert;
 
 end;
 
 procedure TFrmCargos.BtnSalvarClick(Sender: TObject);
+//cria uma variavel pra receber o cargo
 var
 cargo : string;
 begin
+//se o campo texto for vazio, entra na validação
 if Trim(TxtNomeFuncionario.Text) = '' then
 begin
+//valida de algo foi digitado no campo texto
       MessageDlg('Preencha o cargo!', TMsgDlgType.mtWarning, mbOKCancel, 0);
       TxtNomeFuncionario.SetFocus;
       exit;
 end;
-//verificar se cargo ja existe
+//sql que busca os cargos na tabela conforme o cargo escrito no campo de texto
+dm.query_cargos.Close;
 dm.query_cargos.SQL.clear;
 dm.query_cargos.SQL.Add('Select * from cargos where cargo = ' + QuotedStr(Trim(TxtNomeFuncionario.Text)) );
 dm.query_cargos.Open;
-
+//verificar se cargo ja existe ao salvar novo
 if not dm.query_cargos.IsEmpty then
 begin
 cargo := dm.query_cargos['cargo'];
@@ -78,7 +146,7 @@ TxtNomeFuncionario.SetFocus;
 exit;
 end;
 
-
+//associa os campos de cargo da datagrid com o cargo da table
 associarCampos;
 dm.tb_Cargos.Post;
 dm.fd.Commit;
@@ -91,10 +159,23 @@ end;
 
 procedure TFrmCargos.FormCreate(Sender: TObject);
 begin
+//ativa a tb_cargos ao abrir a tela
 dm.tb_Cargos.Active := true;
 listar;
 end;
 
+procedure TFrmCargos.gridCellClick(Column: TColumn);
+begin
+//ao clicar na linha dentro do datagrid
+TxtNomeFuncionario.Enabled := True;
+btnEditar.Enabled := True;
+btnExcluir.Enabled := True;
+dm.tb_Cargos.Edit;
+if dm.query_cargos.FieldByName('cargo').Value <> null Then
+TxtNomeFuncionario.Text := dm.query_cargos.FieldByName('cargo').Value;
+id := dm.query_cargos.FieldByName('id').Value;
+end;
+//cria a busca de dados para listar no datagrid
 procedure TFrmCargos.listar;
 begin
 dm.query_cargos.Close;

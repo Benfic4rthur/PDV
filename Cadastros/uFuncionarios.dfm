@@ -14,6 +14,7 @@ object FrmFuncionarios: TFrmFuncionarios
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -152,14 +153,16 @@ object FrmFuncionarios: TFrmFuncionarios
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnNovoClick
   end
   object BtnSalvar: TSpeedButton
-    Left = 96
+    Left = 87
     Top = 576
     Width = 73
     Height = 42
     Cursor = crHandPoint
     Caption = 'Salvar'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -247,14 +250,16 @@ object FrmFuncionarios: TFrmFuncionarios
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnSalvarClick
   end
   object BtnEditar: TSpeedButton
-    Left = 183
+    Left = 166
     Top = 576
     Width = 73
     Height = 42
     Cursor = crHandPoint
     Caption = 'Editar'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -342,14 +347,16 @@ object FrmFuncionarios: TFrmFuncionarios
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnEditarClick
   end
   object BtnExcluir: TSpeedButton
-    Left = 268
+    Left = 245
     Top = 576
     Width = 76
     Height = 42
     Cursor = crHandPoint
     Caption = 'Excluir'
+    Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -437,6 +444,7 @@ object FrmFuncionarios: TFrmFuncionarios
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnExcluirClick
   end
   object TxtBuscarNome: TEdit
     Left = 659
@@ -444,6 +452,7 @@ object FrmFuncionarios: TFrmFuncionarios
     Width = 121
     Height = 21
     TabOrder = 0
+    OnChange = TxtBuscarNomeChange
   end
   object RbCpf: TRadioButton
     Left = 613
@@ -452,6 +461,7 @@ object FrmFuncionarios: TFrmFuncionarios
     Height = 19
     Caption = 'CPF:'
     TabOrder = 1
+    OnClick = RbCpfClick
   end
   object RbNome: TRadioButton
     Left = 556
@@ -460,16 +470,18 @@ object FrmFuncionarios: TFrmFuncionarios
     Height = 17
     Caption = 'Nome:'
     TabOrder = 2
+    OnClick = RbNomeClick
   end
   object TxtBuscarCpf: TMaskEdit
     Left = 659
-    Top = 51
+    Top = 24
     Width = 120
     Height = 21
     EditMask = '000.000.000-00;1;_'
     MaxLength = 14
     TabOrder = 3
     Text = '   .   .   -  '
+    OnChange = TxtBuscarCpfChange
   end
   object TxtNomeFuncionario: TEdit
     Left = 176
@@ -488,7 +500,7 @@ object FrmFuncionarios: TFrmFuncionarios
     TabOrder = 5
     Text = '   .   .   -  '
   end
-  object MaskEdit1: TMaskEdit
+  object telefoneMask: TMaskEdit
     Left = 567
     Top = 149
     Width = 119
@@ -505,23 +517,25 @@ object FrmFuncionarios: TFrmFuncionarios
     Height = 21
     TabOrder = 7
   end
-  object ComboBox1: TComboBox
+  object cbCargo: TComboBox
     Left = 567
     Top = 205
     Width = 123
     Height = 21
     TabOrder = 8
   end
-  object DBGrid1: TDBGrid
+  object bdgridFuncionarios: TDBGrid
     Left = 8
     Top = 280
     Width = 856
     Height = 273
+    DataSource = dm.DSfuncionarios
     TabOrder = 9
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = bdgridFuncionariosCellClick
   end
 end

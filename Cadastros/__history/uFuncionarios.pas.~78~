@@ -1,0 +1,372 @@
+unit uFuncionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Data.DB,
+  Vcl.Buttons, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFrmFuncionarios = class(TForm)
+    TxtBuscarNome: TEdit;
+    RbCpf: TRadioButton;
+    RbNome: TRadioButton;
+    TxtBuscarCpf: TMaskEdit;
+    Label1: TLabel;
+    lblNome: TLabel;
+    TxtNomeFuncionario: TEdit;
+    CpfMaskFuncionario: TMaskEdit;
+    LblCpfFuncionario: TLabel;
+    LblTelefoneFuncionario: TLabel;
+    telefoneMask: TMaskEdit;
+    LblEnderecoFuncionario: TLabel;
+    TxtEnderecoFuncionario: TEdit;
+    LblCargoFuncionario: TLabel;
+    cbCargo: TComboBox;
+    bdgridFuncionarios: TDBGrid;
+    BtnNovo: TSpeedButton;
+    BtnSalvar: TSpeedButton;
+    BtnEditar: TSpeedButton;
+    BtnExcluir: TSpeedButton;
+    procedure FormShow(Sender: TObject);
+    procedure BtnNovoClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
+    procedure BtnEditarClick(Sender: TObject);
+    procedure bdgridFuncionariosCellClick(Column: TColumn);
+    procedure TxtBuscarNomeChange(Sender: TObject);
+    procedure TxtBuscarCpfChange(Sender: TObject);
+    procedure RbNomeClick(Sender: TObject);
+    procedure RbCpfClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure limparCampos;
+    procedure habilitarCampos;
+    procedure desabilitarCampos;
+    procedure listar;
+    procedure associarCampos;
+
+
+    procedure carregarCombobox;
+    procedure buscarPornome;
+    procedure buscarporCpf;
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmFuncionarios: TFrmFuncionarios;
+  id : String;
+  cpfAntigo : String;
+
+implementation
+
+{$R *.dfm}
+
+uses uModulo;
+
+{ TFrmFuncionarios }
+
+procedure TFrmFuncionarios.associarCampos;
+begin
+//associa os campos da tabela com os campos da tela
+dm.tb_Funcionarios.FieldByName('nome').Value := TxtNomeFuncionario.Text;
+dm.tb_Funcionarios.FieldByName('cpf').Value := CpfMaskFuncionario.Text;
+dm.tb_Funcionarios.FieldByName('telefone').Value := telefoneMask.Text;
+dm.tb_Funcionarios.FieldByName('endereco').Value := TxtEnderecoFuncionario.Text;
+dm.tb_Funcionarios.FieldByName('cargo').Value := cbCargo.Text;
+dm.tb_Funcionarios.FieldByName('data').Value := DateToStr(Date);
+end;
+
+procedure TFrmFuncionarios.bdgridFuncionariosCellClick(Column: TColumn);
+begin
+//ao clicar na linha dentro do datagrid
+ habilitarCampos;
+  btnEditar.Enabled := true;
+  btnExcluir.Enabled := true;
+
+  dm.tb_Funcionarios.Edit;
+//pega os valores da base e joga nos campos aos quais são associados
+if dm.query_funcionarios.FieldByName('nome').Value <> null Then
+TxtNomeFuncionario.Text := dm.query_funcionarios.FieldByName('nome').Value;
+if dm.query_funcionarios.FieldByName('cpf').Value <> null Then
+CpfMaskFuncionario.Text := dm.query_funcionarios.FieldByName('cpf').Value;
+if dm.query_funcionarios.FieldByName('telefone').Value <> null Then
+telefoneMask.Text := dm.query_funcionarios.FieldByName('telefone').Value;
+if dm.query_funcionarios.FieldByName('endereco').Value <> null Then
+TxtEnderecoFuncionario.Text := dm.query_funcionarios.FieldByName('endereco').Value;
+if dm.query_funcionarios.FieldByName('cargo').Value <> null Then
+cbCargo.Text := dm.query_funcionarios.FieldByName('cargo').Value;
+id := dm.query_funcionarios.FieldByName('id').Value;
+cpfAntigo := dm.query_funcionarios.FieldByName('cpf').Value;
+end;
+
+procedure TFrmFuncionarios.BtnEditarClick(Sender: TObject);
+begin
+var
+cpf : string;
+begin
+//se o campo texto for vazio, entra na validação
+if Trim(TxtNomeFuncionario.Text) = '' then
+begin
+//valida se algo foi digitado no campo texto
+      MessageDlg('Preencha o nome do funcionário!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      TxtNomeFuncionario.SetFocus;
+      exit;
+end;
+if Trim(CpfMaskFuncionario.EditText) = '___.___.___-__' then
+begin
+//valida de algo foi digitado no campo texto
+      MessageDlg('Preencha o CPF do funcionário!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      CpfMaskFuncionario.SetFocus;
+      exit;
+end;
+if cbCargo.Text = '' then
+begin
+//valida de algo foi digitado no campo texto
+      MessageDlg('Preencha o cargo do funcionário!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      cbCargo.SetFocus;
+      exit;
+end;
+if cpfAntigo <> CpfMaskFuncionario.Text then
+begin
+//sql que busca o funcionario na tabela conforme o cpf escrito no campo de texto
+dm.query_funcionarios.Close;
+dm.query_funcionarios.SQL.clear;
+dm.query_funcionarios.SQL.Add('Select * from funcionarios where cpf = ' + QuotedStr(Trim(CpfMaskFuncionario.Text)) );
+dm.query_funcionarios.Open;
+//verificar se cpf ja existe ao salvar novo
+if not dm.query_funcionarios.IsEmpty then
+begin
+cpf := dm.query_funcionarios['cpf'];
+MessageDlg('o cpf '+ cpf + ' já esta cadastrado!', mtInformation, mbOKCancel, 0);
+CpfMaskFuncionario.Text := '';
+CpfMaskFuncionario.SetFocus;
+exit;
+end;
+
+end;
+associarCampos;
+dm.query_funcionarios.Close;
+dm.query_funcionarios.SQL.clear;
+//faz um update na base no campo cargo que tenha o id igual ao passado
+dm.query_funcionarios.SQL.Add('Update funcionarios set nome = :nome, cpf = :cpf, telefone = :telefone, endereco = :endereco, cargo = :cargo where id = :id');
+dm.query_funcionarios.paramByName('nome').Value := TxtNomeFuncionario.text;
+dm.query_funcionarios.paramByName('cpf').Value := CpfMaskFuncionario.text;
+dm.query_funcionarios.paramByName('telefone').Value := telefoneMask.text;
+dm.query_funcionarios.paramByName('endereco').Value := TxtEnderecoFuncionario.text;
+dm.query_funcionarios.paramByName('cargo').Value := cbCargo.text;
+dm.query_funcionarios.paramByName('id').value := id;
+dm.query_funcionarios.ExecSql;
+listar;
+
+
+MessageDlg('Editado com sucesso!', mtInformation, mbOKCancel, 0);
+limparCampos;
+desabilitarCampos;
+BtnEditar.Enabled := false;
+BtnExcluir.Enabled := false;
+listar;
+desabilitarCampos;
+end;
+end;
+
+procedure TFrmFuncionarios.BtnExcluirClick(Sender: TObject);
+begin
+//cria um if que compara o resultado selecionado pelo cliente para excluir ou não da base
+if MessageDlg('Deseja Excluir o registro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+begin
+  dm.tb_Funcionarios.Delete;
+    MessageDlg('Deletado com Sucesso!!', mtInformation, mbOKCancel, 0);
+
+
+     btnEditar.Enabled := false;
+     BtnExcluir.Enabled := false;
+     TxtNomeFuncionario.Text := '';
+
+end;
+listar;
+limparcampos;
+desabilitarcampos;
+end;
+
+procedure TFrmFuncionarios.BtnNovoClick(Sender: TObject);
+begin
+habilitarCampos;
+TxtNomeFuncionario.SetFocus;
+btnSalvar.Enabled := true;
+dm.tb_Funcionarios.Insert;
+end;
+
+procedure TFrmFuncionarios.BtnSalvarClick(Sender: TObject);
+begin
+var
+cpf : string;
+begin
+//se o campo texto for vazio, entra na validação
+if Trim(TxtNomeFuncionario.Text) = '' then
+begin
+//valida se algo foi digitado no campo texto
+      MessageDlg('Preencha o nome do funcionário!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      TxtNomeFuncionario.SetFocus;
+      exit;
+end;
+if Trim(CpfMaskFuncionario.EditText) = '___.___.___-__' then
+begin
+  // campo de entrada com a máscara de CPF está vazio
+  MessageDlg('O o CPF do funcionario.', TMsgDlgType.mtWarning, mbOKCancel, 0);
+  CpfMaskFuncionario.SetFocus;
+  exit;
+end;
+if cbCargo.Text = '' then
+begin
+//valida de algo foi digitado no campo texto
+      MessageDlg('Preencha o cargo do funcionário!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      cbCargo.SetFocus;
+      exit;
+end;
+//sql que busca o funcionario na tabela conforme o cpf escrito no campo de texto
+dm.query_funcionarios.Close;
+dm.query_funcionarios.SQL.clear;
+dm.query_funcionarios.SQL.Add('Select * from funcionarios where cpf = ' + QuotedStr(Trim(CpfMaskFuncionario.Text)) );
+dm.query_funcionarios.Open;
+//verificar se cpf ja existe ao salvar novo
+if not dm.query_funcionarios.IsEmpty then
+begin
+cpf := dm.query_funcionarios['cpf'];
+MessageDlg('o cpf '+ cpf + ' já esta cadastrado!', mtInformation, mbOKCancel, 0);
+CpfMaskFuncionario.Text := '';
+CpfMaskFuncionario.SetFocus;
+exit;
+end;
+//associa os campos de cargo da datagrid com o cargo da table
+associarCampos;
+dm.tb_Funcionarios.Post;
+dm.fd.Commit;
+MessageDlg('Salvo com sucesso!', mtInformation, mbOKCancel, 0);
+limparCampos;
+TxtNomeFuncionario.Text := '';
+desabilitarCampos;
+btnSalvar.Enabled := false;
+btnExcluir.Enabled := false;
+BtnEditar.Enabled := false;
+listar;
+end;
+
+end;
+
+procedure TFrmFuncionarios.buscarporCpf;
+begin
+   dm.query_funcionarios.Close;
+       dm.query_funcionarios.SQL.Clear;
+       dm.query_funcionarios.SQL.Add('SELECT * from funcionarios where cpf = :cpf');
+       dm.query_funcionarios.ParamByName('cpf').Value := TxtBuscarCpf.Text;
+       dm.query_funcionarios.Open;
+  end;
+
+procedure TFrmFuncionarios.buscarPornome;
+  begin
+       dm.query_funcionarios.Close;
+       dm.query_funcionarios.SQL.Clear;
+       dm.query_funcionarios.SQL.Add('SELECT * from funcionarios where nome LIKE :nome');
+       dm.query_funcionarios.ParamByName('nome').Value := TxtBuscarNome.Text + '%';
+       dm.query_funcionarios.Open;
+  end;
+
+procedure TFrmFuncionarios.carregarCombobox;
+begin
+dm.query_cargos.Close;
+dm.query_cargos.Open;
+//se a tabela de cargos não fora vazia
+if not dm.query_cargos.isEmpty then
+//percorre ela enquanto tiver dados
+begin
+while not dm.query_cargos.Eof do
+begin
+//adiciona os campos da tabela na combobox e converte pra string
+cbCargo.Items.Add(dm.query_cargos.FieldByName('cargo').AsString);
+dm.query_cargos.Next;
+end;
+end;
+end;
+
+procedure TFrmFuncionarios.desabilitarCampos;
+begin
+txtNomeFuncionario.Enabled := false;
+CpfMaskFuncionario.Enabled:= false;
+telefoneMask.Enabled := false;
+TxtEnderecoFuncionario.Enabled := false;
+cbCargo.Enabled := false;
+end;
+
+procedure TFrmFuncionarios.FormShow(Sender: TObject);
+begin
+listar;
+TxtBuscarCpf.Visible := false;
+RbNome.Checked := true;
+carregarCombobox;
+cbCargo.ItemIndex := 0;
+desabilitarCampos;
+dm.tb_Funcionarios.Active := true;
+end;
+
+procedure TFrmFuncionarios.habilitarCampos;
+begin
+txtNomeFuncionario.Enabled := true;
+CpfMaskFuncionario.Enabled:= true;
+telefoneMask.Enabled := true;
+TxtEnderecoFuncionario.Enabled := true;
+cbCargo.Enabled := true;
+end;
+
+procedure TFrmFuncionarios.limparCampos;
+begin
+txtNomeFuncionario.Text := '';
+CpfMaskFuncionario.Text := '';
+telefoneMask.Text := '';
+TxtEnderecoFuncionario.Text := '';
+cbCargo.Text := '';
+end;
+
+procedure TFrmFuncionarios.listar;
+begin
+dm.query_funcionarios.Close;
+dm.query_funcionarios.SQL.clear;
+dm.query_funcionarios.SQL.Add('Select * from funcionarios');
+dm.query_funcionarios.Open;
+end;
+
+procedure TFrmFuncionarios.RbCpfClick(Sender: TObject);
+begin
+listar;
+TxtBuscarCpf.Visible := true;
+TxtBuscarNome.Visible := false;
+end;
+
+procedure TFrmFuncionarios.RbNomeClick(Sender: TObject);
+begin
+listar;
+TxtBuscarCpf.Visible := false;
+TxtBuscarNome.Visible := true;
+end;
+
+procedure TFrmFuncionarios.TxtBuscarCpfChange(Sender: TObject);
+begin
+if TxtBuscarCpf.EditText <> '___.___.___-__' then
+begin
+buscarporCpf;
+end
+else
+begin
+
+  listar;
+end;
+end;
+
+procedure TFrmFuncionarios.TxtBuscarNomeChange(Sender: TObject);
+begin
+buscarPornome;
+end;
+
+end.

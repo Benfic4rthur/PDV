@@ -37,13 +37,16 @@ object dm: Tdm
     Top = 176
     object query_cargosid: TFDAutoIncField
       DisplayLabel = 'ID'
+      DisplayWidth = 3
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object query_cargoscargo: TStringField
       AutoGenerateValue = arDefault
       DisplayLabel = 'Cargo'
+      DisplayWidth = 15
       FieldName = 'cargo'
       Origin = 'cargo'
       Size = 25
@@ -51,7 +54,82 @@ object dm: Tdm
   end
   object DScargos: TDataSource
     DataSet = query_cargos
-    Left = 104
+    Left = 40
+    Top = 240
+  end
+  object tb_Funcionarios: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = fd
+    TableName = 'pdv.funcionarios'
+    Left = 144
+    Top = 104
+  end
+  object query_funcionarios: TFDQuery
+    Connection = fd
+    SQL.Strings = (
+      'select * from funcionarios')
+    Left = 144
     Top = 176
+    object query_funcionariosid: TFDAutoIncField
+      DisplayWidth = 4
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object query_funcionariosnome: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome'
+      DisplayWidth = 30
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object query_funcionarioscpf: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'CPF'
+      DisplayWidth = 15
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      EditMask = '000.000.000-00;1;_'
+      Size = 15
+    end
+    object query_funcionariostelefone: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Telefone'
+      DisplayWidth = 15
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      EditMask = '(00)00000-0000;1;_'
+    end
+    object query_funcionariosendereco: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Endere'#231'o'
+      DisplayWidth = 35
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 255
+    end
+    object query_funcionarioscargo: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Cargo'
+      DisplayWidth = 21
+      FieldName = 'cargo'
+      Origin = 'cargo'
+      Size = 50
+    end
+    object query_funcionariosdata: TDateField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Data de Cadastro'
+      FieldName = 'data'
+      Origin = 'data'
+      EditMask = '00/00/0000;1;_'
+    end
+  end
+  object DSfuncionarios: TDataSource
+    DataSet = query_funcionarios
+    Left = 144
+    Top = 240
   end
 end

@@ -19,6 +19,16 @@ type
     query_cargosid: TFDAutoIncField;
     query_cargoscargo: TStringField;
     DScargos: TDataSource;
+    tb_Funcionarios: TFDTable;
+    query_funcionarios: TFDQuery;
+    DSfuncionarios: TDataSource;
+    query_funcionariosid: TFDAutoIncField;
+    query_funcionariosnome: TStringField;
+    query_funcionarioscpf: TStringField;
+    query_funcionariostelefone: TStringField;
+    query_funcionariosendereco: TStringField;
+    query_funcionarioscargo: TStringField;
+    query_funcionariosdata: TDateField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
