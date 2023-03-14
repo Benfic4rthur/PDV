@@ -417,11 +417,12 @@ object FrmCargos: TFrmCargos
     Enabled = False
     TabOrder = 0
   end
-  object DBGrid1: TDBGrid
+  object grid: TDBGrid
     Left = 8
-    Top = 56
+    Top = 63
     Width = 233
     Height = 234
+    DataSource = dm.DScargos
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

@@ -74,9 +74,11 @@ end;
 
 procedure TFrmLogin.login;
 begin
+
 FrmMenu := TFrmMenu.Create(FrmLogin);
 FrmMenu.ShowModal;
 //aqui vem a validação do login
+close;
 end;
 
 end.

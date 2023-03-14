@@ -1,7 +1,8 @@
 object dm: Tdm
   OldCreateOrder = False
-  Height = 423
-  Width = 812
+  OnCreate = DataModuleCreate
+  Height = 640
+  Width = 981
   object fd: TFDConnection
     Params.Strings = (
       'Database=pdv'
@@ -10,47 +11,35 @@ object dm: Tdm
       'DriverID=MySQL')
     Connected = True
     LoginPrompt = False
-    Left = 24
-    Top = 8
+    Left = 40
+    Top = 24
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
     VendorLib = 
       'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PD' +
       'V\libmysql.dll'
-    Left = 728
-    Top = 8
+    Left = 872
+    Top = 24
   end
   object tb_Cargos: TFDTable
     IndexFieldNames = 'id'
     Connection = fd
     TableName = 'pdv.cargos'
-    Left = 24
-    Top = 72
-    object tb_Cargosid: TIntegerField
-      FieldName = 'id'
-      Origin = 'id'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object tb_Cargoscargo: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'cargo'
-      Origin = 'cargo'
-      Size = 25
-    end
+    Left = 40
+    Top = 104
   end
   object query_cargos: TFDQuery
+    Active = True
     Connection = fd
     SQL.Strings = (
-      'select * from cargos;')
-    Left = 24
-    Top = 144
-    object query_cargosid: TIntegerField
+      'select * from cargos')
+    Left = 40
+    Top = 176
+    object query_cargosid: TFDAutoIncField
       DisplayLabel = 'ID'
       FieldName = 'id'
       Origin = 'id'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
+      ProviderFlags = [pfInWhere, pfInKey]
     end
     object query_cargoscargo: TStringField
       AutoGenerateValue = arDefault
@@ -59,5 +48,10 @@ object dm: Tdm
       Origin = 'cargo'
       Size = 25
     end
+  end
+  object DScargos: TDataSource
+    DataSet = query_cargos
+    Left = 104
+    Top = 176
   end
 end

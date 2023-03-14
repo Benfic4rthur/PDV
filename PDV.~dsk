@@ -1,17 +1,23 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Login.dfm',0,1,551,1,1,0,0,,
+File_0=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas',0,1,38,1,38,0,0,,
+File_1=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Login.dfm',0,1,551,1,1,0,0,,
 
 [Modules]
-Module0=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas
-Module1=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
-Module2=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
-Module3=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
-Module4=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas
-Module5=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas
-Count=6
+Module0=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
+Module1=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas
+Module2=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas
+Module3=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
+Module4=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
+Count=5
 EditWindowCount=1
 
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas]
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas]
+ModuleType=TSourceModule
+
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas]
 ModuleType=TSourceModule
 
 [C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas]
@@ -20,24 +26,14 @@ ModuleType=TSourceModule
 [C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas]
 ModuleType=TSourceModule
 
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas]
-ModuleType=TSourceModule
-
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas]
-ModuleType=TSourceModule
-
 [EditWindow0]
-ViewCount=6
-CurrentEditView=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas
+ViewCount=5
+CurrentEditView=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
 View0=0
 View1=1
 View2=2
 View3=3
 View4=4
-View5=5
 PercentageSizes=1
 Create=1
 Visible=1
@@ -76,7 +72,7 @@ TopLine=31
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=Borland.FormDesignerView
+EditViewName=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas
 
 [View1]
 CustomEditViewType=TEditView
@@ -92,26 +88,15 @@ EditViewName=Borland.FormDesignerView
 [View2]
 CustomEditViewType=TEditView
 Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
-CursorX=36
-CursorY=36
-TopLine=33
+CursorX=1
+CursorY=45
+TopLine=38
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas
 
 [View3]
-CustomEditViewType=TEditView
-Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas
-CursorX=1
-CursorY=31
-TopLine=31
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=Borland.FormDesignerView
-
-[View4]
 CustomEditViewType=TEditView
 Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas
 CursorX=1
@@ -122,7 +107,7 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View5]
+[View4]
 CustomEditViewType=TEditView
 Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas
 CursorX=38
@@ -265,8 +250,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,
-ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,ConnectedStoredUsage=0,FetchOptions=0,FormatOptions=0,"LiveBindings Designer=0",Params=0,ResourceOptions=0,TxOptions=0,UpdateOptions=0
+SelectedItem=Caption,
+ExpandedItems=ActiveStoredUsage=0,Connection=0,FetchOptions=0,FieldOptions=0,FilterChanges=0,Anchors=0,Constraints=0,Font=0
 
 [frmDesignPreview]
 PercentageSizes=1
