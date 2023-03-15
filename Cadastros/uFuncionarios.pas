@@ -174,9 +174,17 @@ dm.query_funcionarios.paramByName('id').value := id;
 dm.query_funcionarios.ExecSql;
 listar;
 
+//editar cargo do usuario
+dm.query_usuarios.Close;
+dm.query_usuarios.SQL.clear;
+//faz um update na base no campo cargo que tenha o id igual ao passado
+dm.query_usuarios.SQL.Add('Update usuarios set cargo = :cargo where idfuncionario = :id');
+dm.query_usuarios.paramByName('cargo').Value := cbCargo.text;
+dm.query_usuarios.paramByName('id').value := id;
+dm.query_usuarios.ExecSql;
 
-MessageDlg('Editado com sucesso!', mtInformation, mbOKCancel, 0);
 limparCampos;
+MessageDlg('Editado com sucesso!', mtInformation, mbOKCancel, 0);
 desabilitarCampos;
 BtnEditar.Enabled := false;
 BtnExcluir.Enabled := false;

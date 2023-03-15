@@ -52,6 +52,8 @@ var
   nomeFuncionario: String;
   cargoFuncionario : String;
   chamada : String;
+  nomeUsuario: String;
+  cargoUsuario: String;
 
 implementation
 

@@ -36,7 +36,7 @@ implementation
 
 {$R *.dfm}
 
-uses Menu;
+uses Menu, uModulo, uUsuarios;
 
 procedure TFrmLogin.btnLoginClick(Sender: TObject);
 begin
@@ -57,6 +57,7 @@ end;
 
 procedure TFrmLogin.centralizarPainel;
 begin
+WindowState := wsMaximized;
 pnlLogin.Top := (self.Height div 2) - (pnlLogin.Height div 2);
 pnlLogin.Left := (self.Width div 2) - (pnlLogin.Width div 2);
 end;
@@ -75,10 +76,28 @@ end;
 procedure TFrmLogin.login;
 begin
 
-FrmMenu := TFrmMenu.Create(FrmLogin);
-FrmMenu.ShowModal;
-//aqui vem a validação do login
-close;
+dm.query_usuarios.Close;
+dm.query_usuarios.SQL.clear;
+dm.query_usuarios.SQL.Add('Select * from usuarios where usuario = :usuario and senha = :senha');
+dm.query_usuarios.ParamByName('usuario').AsString := txtUsuario.Text;
+dm.query_usuarios.ParamByName('senha').AsString := txtSenha.Text;
+dm.query_usuarios.Open;
+//verificar se cpf ja existe ao salvar novo
+if not dm.query_usuarios.IsEmpty then
+        begin
+      nomeUsuario := dm.query_usuarios['usuario'];
+      cargoUsuario := dm.query_usuarios['cargo'];
+      FrmMenu := TFrmMenu.Create(FrmLogin);
+      txtSenha.Text := '';
+      FrmMenu.ShowModal;
+end
+else
+begin
+MessageDlg('Credenciais invalidas', TMsgDlgType.mtError, mbOKCancel, 0);
+txtUsuario.Text := '';
+txtSenha.Text := '';
+txtUsuario.SetFocus;
+end;
 end;
 
 end.
