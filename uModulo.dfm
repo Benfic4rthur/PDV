@@ -132,4 +132,72 @@ object dm: Tdm
     Left = 144
     Top = 240
   end
+  object tb_Usuarios: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = fd
+    TableName = 'pdv.usuarios'
+    Left = 248
+    Top = 104
+  end
+  object query_usuarios: TFDQuery
+    Connection = fd
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 248
+    Top = 176
+    object query_usuariosid: TFDAutoIncField
+      DisplayLabel = 'ID'
+      DisplayWidth = 4
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      Visible = False
+    end
+    object query_usuariosnome: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome'
+      DisplayWidth = 20
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 50
+    end
+    object query_usuariosusuario: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Usu'#225'rio'
+      DisplayWidth = 15
+      FieldName = 'usuario'
+      Origin = 'usuario'
+      Size = 50
+    end
+    object query_usuariossenha: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Senha'
+      DisplayWidth = 10
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 50
+    end
+    object query_usuariosidfuncionario: TStringField
+      AutoGenerateValue = arDefault
+      DisplayWidth = 4
+      FieldName = 'idfuncionario'
+      Origin = 'idfuncionario'
+      Visible = False
+      Size = 50
+    end
+    object query_usuarioscargo: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Cargo'
+      DisplayWidth = 15
+      FieldName = 'cargo'
+      Origin = 'cargo'
+      Size = 50
+    end
+  end
+  object DSusuarios: TDataSource
+    DataSet = query_usuarios
+    Left = 248
+    Top = 240
+  end
 end

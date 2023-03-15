@@ -13,7 +13,7 @@ object FrmFuncionarios: TFrmFuncionarios
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -537,5 +537,6 @@ object FrmFuncionarios: TFrmFuncionarios
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnCellClick = bdgridFuncionariosCellClick
+    OnDblClick = bdgridFuncionariosDblClick
   end
 end

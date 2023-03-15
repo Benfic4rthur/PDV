@@ -39,6 +39,7 @@ type
     procedure TxtBuscarCpfChange(Sender: TObject);
     procedure RbNomeClick(Sender: TObject);
     procedure RbCpfClick(Sender: TObject);
+    procedure bdgridFuncionariosDblClick(Sender: TObject);
   private
     { Private declarations }
     procedure limparCampos;
@@ -64,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses uModulo;
+uses uModulo, uUsuarios;
 
 { TFrmFuncionarios }
 
@@ -100,6 +101,18 @@ if dm.query_funcionarios.FieldByName('cargo').Value <> null Then
 cbCargo.Text := dm.query_funcionarios.FieldByName('cargo').Value;
 id := dm.query_funcionarios.FieldByName('id').Value;
 cpfAntigo := dm.query_funcionarios.FieldByName('cpf').Value;
+end;
+
+procedure TFrmFuncionarios.bdgridFuncionariosDblClick(Sender: TObject);
+begin
+if chamada = 'Func' then
+begin
+idfuncionario := dm.query_funcionarios.FieldByName('id').value;
+nomeFuncionario := dm.query_funcionarios.FieldByName('nome').value;
+cargoFuncionario := dm.query_funcionarios.FieldByName('cargo').value;
+close;
+chamada := '';
+end;
 end;
 
 procedure TFrmFuncionarios.BtnEditarClick(Sender: TObject);
@@ -175,20 +188,38 @@ end;
 procedure TFrmFuncionarios.BtnExcluirClick(Sender: TObject);
 begin
 //cria um if que compara o resultado selecionado pelo cliente para excluir ou não da base
-if MessageDlg('Deseja Excluir o registro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+if MessageDlg('Deseja excluir o registro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
 begin
-  dm.tb_Funcionarios.Delete;
-    MessageDlg('Deletado com Sucesso!!', mtInformation, mbOKCancel, 0);
+  // Captura o ID do registro a ser excluído
+  var id := dm.query_funcionarios.FieldByName('id').Value;
+
+  // Cria uma instrução SQL DELETE com a cláusula WHERE
+  var sql := 'DELETE FROM funcionarios WHERE id = :id';
+
+  // Executa a instrução SQL passando o valor do ID como parâmetro
+  dm.query_funcionarios.SQL.Text := sql;
+  dm.query_funcionarios.Params.ParamByName('id').Value := id;
+  dm.query_funcionarios.ExecSQL;
+
+  listar;
+  MessageDlg('Deletado com sucesso!', mtInformation, [mbOK], 0);
+
+  // Desabilita os botões de editar e excluir, limpa o campo de texto e atualiza a lista
+  btnEditar.Enabled := false;
+  BtnExcluir.Enabled := false;
+  TxtNomeFuncionario.Text := '';
+  limparcampos;
+  desabilitarcampos;
+  end;
+  // Cria uma instrução SQL DELETE com a cláusula WHERE
+  var sql := 'DELETE FROM usuarios WHERE idfuncionario = :id';
+
+   // Executa a instrução SQL passando o valor do ID como parâmetro
+  dm.query_usuarios.SQL.Text := sql;
+  dm.query_usuarios.Params.ParamByName('id').Value := id;
+  dm.query_usuarios.ExecSQL;
 
 
-     btnEditar.Enabled := false;
-     BtnExcluir.Enabled := false;
-     TxtNomeFuncionario.Text := '';
-
-end;
-listar;
-limparcampos;
-desabilitarcampos;
 end;
 
 procedure TFrmFuncionarios.BtnNovoClick(Sender: TObject);
@@ -215,7 +246,7 @@ end;
 if Trim(CpfMaskFuncionario.EditText) = '___.___.___-__' then
 begin
   // campo de entrada com a máscara de CPF está vazio
-  MessageDlg('O o CPF do funcionario.', TMsgDlgType.mtWarning, mbOKCancel, 0);
+  MessageDlg('Preencha o CPF do funcionario.', TMsgDlgType.mtWarning, mbOKCancel, 0);
   CpfMaskFuncionario.SetFocus;
   exit;
 end;
@@ -244,6 +275,7 @@ end;
 associarCampos;
 dm.tb_Funcionarios.Post;
 dm.fd.Commit;
+listar;
 MessageDlg('Salvo com sucesso!', mtInformation, mbOKCancel, 0);
 limparCampos;
 TxtNomeFuncionario.Text := '';
@@ -251,7 +283,7 @@ desabilitarCampos;
 btnSalvar.Enabled := false;
 btnExcluir.Enabled := false;
 BtnEditar.Enabled := false;
-listar;
+
 end;
 
 end;

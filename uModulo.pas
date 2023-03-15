@@ -29,6 +29,15 @@ type
     query_funcionariosendereco: TStringField;
     query_funcionarioscargo: TStringField;
     query_funcionariosdata: TDateField;
+    tb_Usuarios: TFDTable;
+    query_usuarios: TFDQuery;
+    query_usuariosid: TFDAutoIncField;
+    query_usuariosnome: TStringField;
+    query_usuariosusuario: TStringField;
+    query_usuariossenha: TStringField;
+    query_usuariosidfuncionario: TStringField;
+    query_usuarioscargo: TStringField;
+    DSusuarios: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -38,10 +47,17 @@ type
 
 var
   dm: Tdm;
+  //declaração das variaveis globais
+  idfuncionario : String;
+  nomeFuncionario: String;
+  cargoFuncionario : String;
+  chamada : String;
 
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses uFuncionarios, uUsuarios;
 
 {$R *.dfm}
 
