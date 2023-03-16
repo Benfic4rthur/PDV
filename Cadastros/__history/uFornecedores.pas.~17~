@@ -1,0 +1,165 @@
+unit uFornecedores;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.Buttons;
+
+type
+  TFrmFornecedores = class(TForm)
+    Label1: TLabel;
+    lblNome: TLabel;
+    LblTelefoneFuncionario: TLabel;
+    LblEnderecoFuncionario: TLabel;
+    BtnNovo: TSpeedButton;
+    BtnSalvar: TSpeedButton;
+    BtnEditar: TSpeedButton;
+    BtnExcluir: TSpeedButton;
+    edtBuscarNome: TEdit;
+    edtNome: TEdit;
+    telefoneMask: TMaskEdit;
+    edtEndereco: TEdit;
+    bdgridFornecedores: TDBGrid;
+    Label2: TLabel;
+    cnpjMaskedt: TMaskEdit;
+    Label3: TLabel;
+    edtEmail: TEdit;
+    procedure BtnNovoClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure edtBuscarNomeChange(Sender: TObject);
+  private
+    { Private declarations }
+    procedure limparCampos;
+    procedure habilitarCampos;
+    procedure desabilitarCampos;
+    procedure listar;
+    procedure associarCampos;
+
+    procedure buscarPornome;
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmFornecedores: TFrmFornecedores;
+
+implementation
+
+{$R *.dfm}
+
+uses uModulo;
+
+procedure TFrmFornecedores.associarCampos;
+begin
+dm.tb_Fornecedores.FieldByName('nome').Value := edtNome.Text;
+dm.tb_Fornecedores.FieldByName('cnpj').Value := cnpjMaskedt.Text;
+dm.tb_Fornecedores.FieldByName('telefone').Value := telefoneMask.Text;
+dm.tb_Fornecedores.FieldByName('endereco').Value := edtEndereco.Text;
+dm.tb_Fornecedores.FieldByName('email').Value := edtEmail.Text;
+dm.tb_Fornecedores.FieldByName('datacadastro').Value := DateToStr(Date);
+end;
+
+procedure TFrmFornecedores.BtnNovoClick(Sender: TObject);
+begin
+habilitarCampos;
+edtNome.SetFocus;
+btnSalvar.Enabled := true;
+dm.tb_Fornecedores.Insert;
+end;
+
+procedure TFrmFornecedores.BtnSalvarClick(Sender: TObject);
+begin
+if Trim(edtNome.Text) = '' then
+begin
+//valida se algo foi digitado no campo texto
+      MessageDlg('Preencha o nome do fornecedor!', TMsgDlgType.mtWarning, mbOKCancel, 0);
+      edtNome.SetFocus;
+      exit;
+end;
+if Trim(cnpjMaskedt.EditText) = '__.___.___/____-__' then
+begin
+  // campo de entrada com a máscara de CPF está vazio
+  MessageDlg('Preencha o CNPJ do fornecedor.', TMsgDlgType.mtWarning, mbOKCancel, 0);
+  cnpjMaskedt.SetFocus;
+  exit;
+end;
+
+//associa os campos de cargo da datagrid com o cargo da table
+associarCampos;
+dm.tb_Fornecedores.Post;
+dm.fd.Commit;
+listar;
+MessageDlg('Salvo com sucesso!', mtInformation, mbOKCancel, 0);
+limparCampos;
+desabilitarCampos;
+btnSalvar.Enabled := false;
+btnExcluir.Enabled := false;
+BtnEditar.Enabled := false;
+end;
+
+procedure TFrmFornecedores.buscarPornome;
+begin
+       dm.query_fornecedores.Close;
+       dm.query_fornecedores.SQL.Clear;
+       dm.query_fornecedores.SQL.Add('SELECT * from fornecedores where nome LIKE :nome');
+       dm.query_fornecedores.ParamByName('nome').value := edtBuscarNome.Text + '%';
+       dm.query_fornecedores.Open;
+end;
+
+procedure TFrmFornecedores.desabilitarCampos;
+begin
+edtNome.Enabled := false;
+cnpjMaskedt.Enabled:= false;
+telefoneMask.Enabled := false;
+edtEndereco.Enabled := false;
+edtEmail.Enabled := false;
+end;
+
+procedure TFrmFornecedores.edtBuscarNomeChange(Sender: TObject);
+begin
+buscarPornome
+end;
+
+procedure TFrmFornecedores.FormCreate(Sender: TObject);
+begin
+listar;
+end;
+
+procedure TFrmFornecedores.FormShow(Sender: TObject);
+begin
+listar;
+desabilitarCampos;
+dm.tb_Fornecedores.Active := true;
+end;
+
+procedure TFrmFornecedores.habilitarCampos;
+begin
+edtNome.Enabled := true;
+cnpjMaskedt.Enabled:= true;
+telefoneMask.Enabled := true;
+edtEndereco.Enabled := true;
+edtEmail.Enabled := true;
+end;
+
+procedure TFrmFornecedores.limparCampos;
+begin
+edtNome.Text := '';
+cnpjMaskedt.Text := '';
+telefoneMask.Text := '';
+edtEndereco.Text := '';
+edtEmail.Text := '';
+end;
+
+procedure TFrmFornecedores.listar;
+begin
+dm.query_fornecedores.Close;
+dm.query_fornecedores.SQL.clear;
+dm.query_fornecedores.SQL.Add('Select * from fornecedores');
+dm.query_fornecedores.Open;
+end;
+
+end.

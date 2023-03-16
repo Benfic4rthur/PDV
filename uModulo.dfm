@@ -137,14 +137,14 @@ object dm: Tdm
     IndexFieldNames = 'id'
     Connection = fd
     TableName = 'pdv.usuarios'
-    Left = 248
+    Left = 256
     Top = 104
   end
   object query_usuarios: TFDQuery
     Connection = fd
     SQL.Strings = (
       'select * from usuarios')
-    Left = 248
+    Left = 256
     Top = 176
     object query_usuariosid: TFDAutoIncField
       DisplayLabel = 'ID'
@@ -198,7 +198,75 @@ object dm: Tdm
   end
   object DSusuarios: TDataSource
     DataSet = query_usuarios
-    Left = 248
+    Left = 256
+    Top = 240
+  end
+  object tb_Fornecedores: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = fd
+    TableName = 'pdv.fornecedores'
+    Left = 352
+    Top = 104
+  end
+  object query_fornecedores: TFDQuery
+    Connection = fd
+    SQL.Strings = (
+      'select * from fornecedores')
+    Left = 352
+    Top = 176
+    object query_fornecedoresid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+      Visible = False
+    end
+    object query_fornecedoresnome: TStringField
+      AutoGenerateValue = arDefault
+      DisplayWidth = 15
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 50
+    end
+    object query_fornecedorestelefone: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Telefone'
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 15
+    end
+    object query_fornecedoresemail: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'E-mail'
+      DisplayWidth = 25
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 30
+    end
+    object query_fornecedoresendereco: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Endere'#231'o'
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 35
+    end
+    object query_fornecedorescnpj: TStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Cnpj'
+      FieldName = 'cnpj'
+      Origin = 'cnpj'
+    end
+    object query_fornecedoresdatacadastro: TDateField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Data de Cadastro'
+      FieldName = 'datacadastro'
+      Origin = 'datacadastro'
+    end
+  end
+  object DSfornecedores: TDataSource
+    DataSet = query_fornecedores
+    Left = 352
     Top = 240
   end
 end

@@ -38,6 +38,16 @@ type
     query_usuariosidfuncionario: TStringField;
     query_usuarioscargo: TStringField;
     DSusuarios: TDataSource;
+    tb_Fornecedores: TFDTable;
+    query_fornecedores: TFDQuery;
+    query_fornecedoresid: TFDAutoIncField;
+    query_fornecedoresnome: TStringField;
+    query_fornecedorestelefone: TStringField;
+    query_fornecedoresemail: TStringField;
+    query_fornecedoresendereco: TStringField;
+    query_fornecedorescnpj: TStringField;
+    query_fornecedoresdatacadastro: TDateField;
+    DSfornecedores: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

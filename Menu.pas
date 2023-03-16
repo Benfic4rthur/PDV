@@ -20,10 +20,13 @@ type
     Usuarios1: TMenuItem;
     Funcionarios1: TMenuItem;
     Cargo1: TMenuItem;
+    Sair2: TMenuItem;
     procedure Usuarios1Click(Sender: TObject);
     procedure Funcionarios1Click(Sender: TObject);
     procedure Cargo1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Fornecedores1Click(Sender: TObject);
+    procedure Sair2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses uUsuarios, uFuncionarios, uCargos, uModulo;
+uses uUsuarios, uFuncionarios, uCargos, uModulo, uFornecedores;
 
 procedure TFrmMenu.Cargo1Click(Sender: TObject);
 begin
@@ -54,10 +57,21 @@ end;
 
 end;
 
+procedure TFrmMenu.Fornecedores1Click(Sender: TObject);
+begin
+FrmFornecedores := TFrmFornecedores.Create(self);
+FrmFornecedores.ShowModal;
+end;
+
 procedure TFrmMenu.Funcionarios1Click(Sender: TObject);
 begin
 FrmFuncionarios := TFrmFuncionarios.Create(self);
 FrmFuncionarios.ShowModal;
+end;
+
+procedure TFrmMenu.Sair2Click(Sender: TObject);
+begin
+close;
 end;
 
 procedure TFrmMenu.Usuarios1Click(Sender: TObject);

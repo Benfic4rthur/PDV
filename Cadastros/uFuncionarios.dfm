@@ -4,7 +4,7 @@ object FrmFuncionarios: TFrmFuncionarios
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Funcion'#225'rios'
-  ClientHeight = 693
+  ClientHeight = 656
   ClientWidth = 872
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object FrmFuncionarios: TFrmFuncionarios
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 514
+    Left = 586
     Top = 27
     Width = 36
     Height = 13
@@ -447,24 +447,24 @@ object FrmFuncionarios: TFrmFuncionarios
     OnClick = BtnExcluirClick
   end
   object TxtBuscarNome: TEdit
-    Left = 659
+    Left = 731
     Top = 24
-    Width = 121
+    Width = 120
     Height = 21
     TabOrder = 0
     OnChange = TxtBuscarNomeChange
   end
   object RbCpf: TRadioButton
-    Left = 613
+    Left = 685
     Top = 25
     Width = 40
     Height = 19
-    Caption = 'CPF:'
+    Caption = 'CNPJ:'
     TabOrder = 1
     OnClick = RbCpfClick
   end
   object RbNome: TRadioButton
-    Left = 556
+    Left = 628
     Top = 26
     Width = 51
     Height = 17
@@ -473,7 +473,7 @@ object FrmFuncionarios: TFrmFuncionarios
     OnClick = RbNomeClick
   end
   object TxtBuscarCpf: TMaskEdit
-    Left = 659
+    Left = 731
     Top = 24
     Width = 120
     Height = 21
