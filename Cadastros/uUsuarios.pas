@@ -256,8 +256,9 @@ procedure TFrmUsuarios.buscarNome;
 begin
 dm.query_usuarios.Close;
        dm.query_usuarios.SQL.Clear;
-       dm.query_usuarios.SQL.Add('SELECT * from usuarios where nome LIKE :nome');
+       dm.query_usuarios.SQL.Add('SELECT * from usuarios where nome LIKE :nome and cargo <> :cargo');
        dm.query_usuarios.ParamByName('nome').Value := EdtBuscarNome.Text + '%';
+       dm.query_usuarios.ParamByName('cargo').Value := 'Administrador';
        dm.query_usuarios.Open;
 end;
 
@@ -304,8 +305,9 @@ begin
 dm.query_usuarios.Close;
 dm.query_usuarios.SQL.clear;
 dm.query_usuarios.SQL.Add('Select * from usuarios where cargo <> :cargo');
-dm.query_usuarios.ParamByName('cargo').Value := 'admin';
+dm.query_usuarios.ParamByName('cargo').Value := 'Administrador';
 dm.query_usuarios.Open;
+
 end;
 
 end.

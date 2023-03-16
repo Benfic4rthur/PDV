@@ -20,6 +20,7 @@ type
     procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
       var Resize: Boolean);
     procedure btnLoginClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
     procedure centralizarPainel;
@@ -68,6 +69,13 @@ begin
     centralizarPainel;
 end;
 
+procedure TFrmLogin.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if key = 13 then
+login;
+end;
+
 procedure TFrmLogin.FormShow(Sender: TObject);
 begin
     centralizarPainel;
@@ -93,7 +101,7 @@ if not dm.query_usuarios.IsEmpty then
 end
 else
 begin
-MessageDlg('Credenciais invalidas', TMsgDlgType.mtError, mbOKCancel, 0);
+MessageDlg('Credenciais invalidas', TMsgDlgType.mtInformation, mbOKCancel, 0);
 txtUsuario.Text := '';
 txtSenha.Text := '';
 txtUsuario.SetFocus;

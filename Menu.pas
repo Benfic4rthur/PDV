@@ -17,12 +17,13 @@ type
     Movimentaes1: TMenuItem;
     Relatrios1: TMenuItem;
     Sair1: TMenuItem;
-    Usurios1: TMenuItem;
+    Usuarios1: TMenuItem;
     Funcionarios1: TMenuItem;
     Cargo1: TMenuItem;
-    procedure Usurios1Click(Sender: TObject);
+    procedure Usuarios1Click(Sender: TObject);
     procedure Funcionarios1Click(Sender: TObject);
     procedure Cargo1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,12 +37,21 @@ implementation
 
 {$R *.dfm}
 
-uses uUsuarios, uFuncionarios, uCargos;
+uses uUsuarios, uFuncionarios, uCargos, uModulo;
 
 procedure TFrmMenu.Cargo1Click(Sender: TObject);
 begin
 FrmCargos := TFrmCargos.Create(self);
 FrmCargos.ShowModal;
+end;
+
+procedure TFrmMenu.FormShow(Sender: TObject);
+begin
+if (cargoUsuario = 'Administrador') or (cargoUsuario = 'Gerente') then
+begin
+Usuarios1.Enabled := true;
+end;
+
 end;
 
 procedure TFrmMenu.Funcionarios1Click(Sender: TObject);
@@ -50,7 +60,7 @@ FrmFuncionarios := TFrmFuncionarios.Create(self);
 FrmFuncionarios.ShowModal;
 end;
 
-procedure TFrmMenu.Usurios1Click(Sender: TObject);
+procedure TFrmMenu.Usuarios1Click(Sender: TObject);
 begin
 FrmUsuarios := TFrmUsuarios.Create(self);
 FrmUsuarios.ShowModal;
