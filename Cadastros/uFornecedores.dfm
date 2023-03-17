@@ -431,6 +431,7 @@ object FrmFornecedores: TFrmFornecedores
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
     ParentFont = False
+    OnClick = BtnExcluirClick
   end
   object Label2: TLabel
     Left = 415
@@ -476,7 +477,7 @@ object FrmFornecedores: TFrmFornecedores
     Top = 200
     Width = 183
     Height = 21
-    TabOrder = 3
+    TabOrder = 4
   end
   object bdgridFornecedores: TDBGrid
     Left = 9
@@ -484,7 +485,7 @@ object FrmFornecedores: TFrmFornecedores
     Width = 856
     Height = 273
     DataSource = dm.DSfornecedores
-    TabOrder = 4
+    TabOrder = 6
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
@@ -507,6 +508,6 @@ object FrmFornecedores: TFrmFornecedores
     Top = 149
     Width = 141
     Height = 21
-    TabOrder = 6
+    TabOrder = 3
   end
 end

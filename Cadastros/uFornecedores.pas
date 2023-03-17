@@ -33,6 +33,7 @@ type
     procedure edtBuscarNomeChange(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure bdgridFornecedoresCellClick(Column: TColumn);
+    procedure BtnExcluirClick(Sender: TObject);
   private
     { Private declarations }
     procedure limparCampos;
@@ -126,6 +127,32 @@ BtnExcluir.Enabled := false;
 listar;
 desabilitarCampos;
 
+end;
+
+procedure TFrmFornecedores.BtnExcluirClick(Sender: TObject);
+begin
+if MessageDlg('Deseja excluir o registro?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+begin
+  // Captura o ID do registro a ser excluído
+  var id := dm.query_fornecedores.FieldByName('id').Value;
+
+  // Cria uma instrução SQL DELETE com a cláusula WHERE
+  var sql := 'DELETE FROM fornecedores WHERE id = :id';
+
+  // Executa a instrução SQL passando o valor do ID como parâmetro
+  dm.query_fornecedores.SQL.Text := sql;
+  dm.query_fornecedores.Params.ParamByName('id').Value := id;
+  dm.query_fornecedores.ExecSQL;
+
+  listar;
+  MessageDlg('Deletado com sucesso!', mtInformation, [mbOK], 0);
+
+  // Desabilita os botões de editar e excluir, limpa o campo de texto e atualiza a lista
+  btnEditar.Enabled := false;
+  BtnExcluir.Enabled := false;
+  limparcampos;
+  desabilitarcampos;
+  end;
 end;
 
 procedure TFrmFornecedores.BtnNovoClick(Sender: TObject);

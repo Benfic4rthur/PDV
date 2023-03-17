@@ -1,30 +1,29 @@
 ﻿[Closed Files]
 File_0=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uUsuarios.pas',0,25,230,99,259,0,0,,
-File_1=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\uModulo.pas',0,1,36,24,66,0,0,,
-File_2=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas',0,1,72,7,74,0,0,,
-File_3=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas',0,1,72,7,76,0,0,,
-File_4=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas',0,1,52,1,116,0,0,,
-File_5=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Usuarios.pas',0,1,41,29,154,0,0,,
-File_6=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Cargos.pas',0,1,66,1,1,0,0,,
-File_7=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Funcionarios.pas',0,1,163,1,165,0,0,,
-File_8=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Funcionarios.dfm',0,1,395,1,1,0,0,,
-File_9=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Login.dfm',0,1,551,1,1,0,0,,
+File_1=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Menu.pas',0,1,72,7,74,0,0,,
+File_2=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Login.pas',0,1,72,7,76,0,0,,
+File_3=TSourceModule,'C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uCargos.pas',0,1,52,1,116,0,0,,
+File_4=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Usuarios.pas',0,1,41,29,154,0,0,,
+File_5=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Cargos.pas',0,1,66,1,1,0,0,,
+File_6=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Funcionarios.pas',0,1,163,1,165,0,0,,
+File_7=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Cadastros\Funcionarios.dfm',0,1,395,1,1,0,0,,
+File_8=TSourceModule,'C:\Users\Arthur Benfica\Desktop\Curso Delphi\Arquivos\Fontes do Projeto\PDV\Login.dfm',0,1,551,1,1,0,0,,
 
 [Modules]
-Module0=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
-Module1=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFornecedores.pas
+Module0=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFornecedores.pas
+Module1=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
 Count=2
 EditWindowCount=1
-
-[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas]
-ModuleType=TSourceModule
 
 [C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFornecedores.pas]
 ModuleType=TSourceModule
 
+[C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas]
+ModuleType=TSourceModule
+
 [EditWindow0]
 ViewCount=2
-CurrentEditView=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
+CurrentEditView=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFornecedores.pas
 View0=0
 View1=1
 PercentageSizes=1
@@ -59,9 +58,9 @@ BottomMiddelPanelData=0000080001020200000009000000446F636B5369746530100000004772
 [View0]
 CustomEditViewType=TEditView
 Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFornecedores.pas
-CursorX=5
-CursorY=159
-TopLine=103
+CursorX=31
+CursorY=152
+TopLine=132
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -70,9 +69,9 @@ EditViewName=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\C
 [View1]
 CustomEditViewType=TEditView
 Module=C:\Users\Arthur Benfica\Documents\Embarcadero\Studio\Projects\PDV\Cadastros\uFuncionarios.pas
-CursorX=5
-CursorY=412
-TopLine=308
+CursorX=30
+CursorY=221
+TopLine=196
 LeftCol=1
 Elisions=
 Bookmarks={9,412,5}
@@ -210,8 +209,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Align,LookupDataSet
-ExpandedItems=LiveBindings=0,"LiveBindings Designer=0",Margins=0,ProviderFlags=0,Anchors=0,BorderIcons=0,Constraints=0,CustomTitleBar=0,Font=0,GlassFrame=0,HorzScrollBar=0,Padding=0,StyleElements=0,Touch=0,VertScrollBar=0
+SelectedItem=Caption,
+ExpandedItems=Anchors=0,Constraints=0
 
 [frmDesignPreview]
 PercentageSizes=1

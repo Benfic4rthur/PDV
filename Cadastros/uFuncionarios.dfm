@@ -460,7 +460,7 @@ object FrmFuncionarios: TFrmFuncionarios
     Width = 40
     Height = 19
     Caption = 'CNPJ:'
-    TabOrder = 1
+    TabOrder = 7
     OnClick = RbCpfClick
   end
   object RbNome: TRadioButton
@@ -469,7 +469,7 @@ object FrmFuncionarios: TFrmFuncionarios
     Width = 51
     Height = 17
     Caption = 'Nome:'
-    TabOrder = 2
+    TabOrder = 8
     OnClick = RbNomeClick
   end
   object TxtBuscarCpf: TMaskEdit
@@ -479,25 +479,25 @@ object FrmFuncionarios: TFrmFuncionarios
     Height = 21
     EditMask = '000.000.000-00;1;_'
     MaxLength = 14
-    TabOrder = 3
+    TabOrder = 9
     Text = '   .   .   -  '
     OnChange = TxtBuscarCpfChange
   end
   object TxtNomeFuncionario: TEdit
-    Left = 176
+    Left = 181
     Top = 149
     Width = 121
     Height = 21
-    TabOrder = 4
+    TabOrder = 1
   end
   object CpfMaskFuncionario: TMaskEdit
-    Left = 361
+    Left = 363
     Top = 149
     Width = 120
     Height = 21
     EditMask = '000.000.000-00;1;_'
     MaxLength = 14
-    TabOrder = 5
+    TabOrder = 2
     Text = '   .   .   -  '
   end
   object telefoneMask: TMaskEdit
@@ -507,7 +507,7 @@ object FrmFuncionarios: TFrmFuncionarios
     Height = 21
     EditMask = '(00)00000-0000;1;_'
     MaxLength = 14
-    TabOrder = 6
+    TabOrder = 3
     Text = '(  )     -    '
   end
   object TxtEnderecoFuncionario: TEdit
@@ -515,14 +515,14 @@ object FrmFuncionarios: TFrmFuncionarios
     Top = 205
     Width = 305
     Height = 21
-    TabOrder = 7
+    TabOrder = 4
   end
   object cbCargo: TComboBox
     Left = 567
     Top = 205
     Width = 123
     Height = 21
-    TabOrder = 8
+    TabOrder = 5
   end
   object bdgridFuncionarios: TDBGrid
     Left = 8
@@ -530,7 +530,7 @@ object FrmFuncionarios: TFrmFuncionarios
     Width = 856
     Height = 273
     DataSource = dm.DSfuncionarios
-    TabOrder = 9
+    TabOrder = 6
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
